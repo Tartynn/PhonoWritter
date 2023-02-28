@@ -10,7 +10,6 @@ Office.onReady((info) => {
     document.getElementById("sideload-msg").style.display = "none";
     document.getElementById("app-body").style.display = "flex";
     document.getElementById("run").onclick = run;
-    Console.log("fdp");
     // Get the current Word document object
     // Get the current selection object
     const selection = document.getSelection();
