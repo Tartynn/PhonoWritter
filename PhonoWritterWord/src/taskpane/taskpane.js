@@ -10,6 +10,7 @@ Office.onReady((info) => {
     document.getElementById("sideload-msg").style.display = "none";
     document.getElementById("app-body").style.display = "flex";
     document.getElementById("run").onclick = run;
+    /*
     // Get the current Word document object
     // Get the current selection object
     const selection = document.getSelection();
@@ -17,6 +18,7 @@ Office.onReady((info) => {
     const paragraphRange = selection.getRange("Paragraph");
     // Get the text of the current paragraph
     Console.log(`The current paragraph is: ${paragraphRange}`);
+    */
   }
 });
 
