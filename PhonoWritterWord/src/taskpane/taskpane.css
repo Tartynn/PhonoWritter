@@ -12,10 +12,50 @@
  }
  
  ul {
-     margin: 0;
-     padding: 0;
- }
- 
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float: left;
+  }
+  
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0 10px;
+  }
+
+  .prediction{
+    width:250px;
+    height:100px;
+    border:1px solid #000;
+    display: flex;
+    float: left;
+}
+
+ .def{
+    width:350px;
+    height:100px;
+    border:1px solid #000;
+    display: flex;
+    float: left;
+}
+
+.image{
+    width:100px;
+    height:100px;
+    border:1px solid #000;
+    display: flex;
+    float: left;
+}
+
+.ms-ListItem:hover{
+    background: lightgray;
+}
+
  .ms-welcome__header {
     padding: 20px;
     padding-bottom: 30px;
@@ -29,7 +69,6 @@
 
  .ms-welcome__main {
     display: -webkit-flex;
-    display: flex;
     -webkit-flex-direction: column;
     flex-direction: column;
     -webkit-flex-wrap: nowrap;
@@ -55,10 +94,12 @@
      padding-bottom: 20px;
      display: -webkit-flex;
      display: flex;
+     
  }
  
  .ms-welcome__features.ms-List .ms-ListItem > .ms-Icon {
      margin-right: 10px;
+     
  }
  
  .ms-welcome__action.ms-Button--hero {

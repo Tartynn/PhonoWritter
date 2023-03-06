@@ -19,6 +19,9 @@ Office.onReady((info) => {
       console.log("Sorry. The tutorial add-in uses Word.js APIs that are not available in your version of Office.");
     }
 
+    const context = Office.context;
+    trackk(context);
+
     // Assign event handlers and other initialization logic.
 
     // Add event handler for document selection change event
@@ -141,5 +144,26 @@ async function replaceText(newText) {
     if (error instanceof OfficeExtension.Error) {
       console.log("Debug info: " + JSON.stringify(error.debugInfo));
     }
+  });
+}
+
+function trackk(context) {
+  // Get the current selection in the document
+  const selection = context.document.getSelection();
+
+  // Get the start of the selection as a range
+  const range = selection.getRange("Start");
+
+  // Add an event listener to the range to detect changes
+  range.track("end", () => {
+    // Get the text of the range
+    range.load("text");
+    return context.sync().then(() => {
+      // Extract the user's input until a space is inserted
+      const input = range.text.split(" ")[0];
+      console.log(input);
+      // Use the input to display related words
+      // ...
+    });
   });
 }
