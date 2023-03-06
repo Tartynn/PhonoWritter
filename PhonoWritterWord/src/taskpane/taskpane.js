@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /*
  * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
  * See LICENSE in the project root for license information.
@@ -30,6 +31,18 @@ Office.onReady((info) => {
         }
       }
     );
+    // Add event handler for document change event (live typing)
+    // Office.context.document.addHandlerAsync(
+    //   Office.EventType.DocumentSelectionChanged,
+    //   onSelectionChange,
+    //   function (result) {
+    //     if (result.status !== Office.AsyncResultStatus.Succeeded) {
+    //       console.log("Could not add event handler: " + result.error.message);
+    //     }
+    //   }
+    // );
+
+    // Office.context.document.addHandlerAsync(Office.EventType.DocumentSelectionChanged, onWrittenText);
 
     // Office.context.document.addHandlerAsync(
     //   Office.EventType.ContentControlAdded,
@@ -43,6 +56,13 @@ Office.onReady((info) => {
   }
 });
 
+document.oninput = function () {
+  var currentText = document.getSelection().toString();
+
+  document.getElementById("userText").innerHTML = currentText;
+  console.log("oausdf");
+};
+
 function detectSelection() {
   var selection = Office.context.document.getSelectedDataAsync(Office.CoercionType.Text, function (result) {
     if (result.status !== Office.AsyncResultStatus.Succeeded) {
@@ -54,21 +74,44 @@ function detectSelection() {
       listContainer.innerHTML = ""; // Erase previous content
       var list = createAlternativesList(); // create new list - Method to adapt with PhonoWriter source code...
       listContainer.appendChild(list); // Display (add) the list
+      if (result.value === "") {
+        console.log("Vide" + result.value.toString());
+
+      } else {
+        console.log(selectedText);
+      }
     }
   });
 }
 
-// //DOESN'T WORK CORRECTLY FOR NOW
-// function detectWrittenText(eventArgs) {
-//   // Retrieves the text of the last added content control element
-//   var contentControl = eventArgs.contentControl;
-//   contentControl.addHandlerAsync(Office.EventType.Input, function (eventArgs) {
-//       var text = eventArgs.target.text;
-//       console.log(text);
-//       // display the written text in dedicated text zone
-//       document.getElementById("userWrittenText").innerHTML = text;
-//     });
-// }
+//DOESN'T WORK CORRECTLY FOR NOW
+function onSelectionChange(eventArgs) {
+  // Get the current selection
+  var selection = Office.context.document.getSelection();
+  // Check if the selection is inside a content control
+  if (selection.parentContentControl) {
+    // Add an event handler to the content control's textChanged event
+    selection.parentContentControl.addHandlerAsync(
+      Office.EventType.ContentControlTextChanged,
+      onTextChanged,
+      function (result) {
+        if (result.status !== Office.AsyncResultStatus.Succeeded) {
+          console.log("Could not add event handler: " + result.error.message);
+        }
+      }
+    );
+  }
+}
+
+function onTextChanged(eventArgs) {
+  // Get the text of the content control
+  var text = eventArgs.source.text;
+
+  // Do something with the retrieved text, such as displaying it in the console
+  // display the written text in dedicated text zone
+  document.getElementById("userWrittenText").innerHTML = text;
+  console.log(text);
+}
 
 function createAlternativesList() {
   var list = document.createElement("ul");
