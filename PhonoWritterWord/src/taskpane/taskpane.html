@@ -30,27 +30,28 @@
       <nav>
         <ul class="ms-List ms-welcome__features">
           <li class="ms-ListItem pictureButton">
-            <img src="..\..\assets\PredictionsPicture.png" alt="Picture" />
+            <img src="..\..\assets\PredictionsPicture.png" alt="Picture" id="pictureImg"/>
             <span class="ms-font-m">Picture</span>
           </li>
           <li class="ms-ListItem definitionButton">
-            <img src="..\..\assets\PredictionsDefinition.png" alt="Definition" />
+            <img src="..\..\assets\PredictionsDefinition.png" alt="Definition" id="definitionImg"/>
             <span class="ms-font-m">Definition</span>
           </li>
           <li class="ms-ListItem auditionButton">
-            <img src="..\..\assets\PredictionsAudition.png" alt="Audition" />
+            <img src="..\..\assets\PredictionsAudition.png" alt="Audition" id="auditionImg"/>
             <span class="ms-font-m">Audition</span>
           </li>
           <li class="ms-ListItem readingButton">
-            <img src="..\..\assets\PredictionsReading.png" alt="Reading" />
+            <img src="..\..\assets\PredictionsReading.png" alt="Reading" id="readingImg"/>
             <span class="ms-font-m">Reading</span>
           </li>
           <li class="ms-ListItem configurationButton">
-            <img src="..\..\assets\PredictionsConfiguration.png" alt="Configuration" />
+            <img src="..\..\assets\PredictionsConfiguration.png" alt="Configuration" id="configurationImg"/>
             <span class="ms-font-m">Configuration</span>
           </li>
         </ul>
       </nav>
+      
     </header>
     <section id="sideload-msg" class="ms-welcome__main">
       <h2 class="ms-font-xl">Please sideload your add-in to see app body.</h2>
@@ -58,28 +59,8 @@
     <main id="app-body" class="ms-welcome__main" style="display: none;">
         <h2 class="ms-font-xl"> Predictions </h2>
         <div id="userText">Select one or many words</div>
-        <ul class="ms-List ms-welcome__features">
-            <li class="ms-ListItem pictureButton">
-                <img src="..\..\assets\PredictionsPicture.png" alt="Picture">
-                <span class="ms-font-m">Picture</span>
-            </li>
-            <li class="ms-ListItem definitionButton">
-                <img src="..\..\assets\PredictionsDefinition.png" alt="Definition">
-                <span class="ms-font-m">Definition</span>
-            </li>
-            <li class="ms-ListItem auditionButton">
-                <img src="..\..\assets\PredictionsAudition.png" alt="Audition">
-                <span class="ms-font-m">Audition</span>
-            </li>
-            <li class="ms-ListItem readingButton">
-                <img src="..\..\assets\PredictionsReading.png" alt="Reading">
-                <span class="ms-font-m">Reading</span>
-            </li>
-            <li class="ms-ListItem configurationButton">
-                <img src="..\..\assets\PredictionsConfiguration.png" alt="Configuration">
-                <span class="ms-font-m">Configuration</span>
-            </li>
-        </ul>
+      
+
         <div id="container">
             <div class="prediction">
          <!-- <button class="ms-Button" id="insert-paragraph">Insert Paragraph</button><br/><br/>
@@ -90,7 +71,7 @@
             </div>
             <div class="image">No image</div>
         </div>
-        <div id="defContainer">
+        <div id="definition">
             <div class="def">No definition available</div>
           </div>
         </article>

@@ -10,8 +10,8 @@
      margin: 0;
      padding: 0;
  }
-
-  header ul{
+ 
+ header ul{
     justify-content: flex-start;
     flex-wrap: wrap;
     flex-direction: wrap;
@@ -24,14 +24,21 @@
     align-items: center;
   }
 
-  header li {
-    justify-content: flex-start;
+  li {
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    padding: 0 5px;
+    text-decoration: double;
+  }
+
   ol{
     display: block;
     padding: 0 0 0 0;
   }
   
-  li {
+  header li {
+    justify-content: flex-start;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,15 +54,20 @@
     float: left;
 }
 
- #defContainer{
+#userText{
+    margin-bottom: 10px;
+}
+
+ /* #defContainer{
     width:350px;
     height:100px;
- }
+ } */
 
- .def{
+ /* .definition{
     display: flex;
     margin-top: 5px;
-}
+top: 5px;
+} */
 
 .image{
     width:100px;

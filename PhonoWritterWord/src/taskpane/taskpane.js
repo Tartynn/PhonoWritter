@@ -76,7 +76,6 @@ function detectSelection() {
       listContainer.appendChild(list); // Display (add) the list
       if (result.value === "") {
         console.log("Vide" + result.value.toString());
-
       } else {
         console.log(selectedText);
       }
@@ -143,3 +142,56 @@ async function replaceText(newText) {
     }
   });
 }
+
+const imageDiv = document.querySelector(".image");
+imageDiv.style.display = "none";
+
+function toggleListItemImage() {
+  const images = {
+    picture: {
+      original: "PredictionsPicture.png",
+      new: "PredictionsPictureOff.png",
+    },
+    definition: {
+      original: "PredictionsDefinition.png",
+      new: "PredictionsDefinitionOff.png",
+    },
+    audition: {
+      original: "PredictionsAudition.png",
+      new: "PredictionsAuditionOff.png",
+    },
+    reading: {
+      original: "PredictionsReading.png",
+      new: "PredictionsReadingOff.png",
+    },
+    configuration: {
+      original: "PredictionsConfiguration.png",
+      new: "PredictionsConfigurationOff.png",
+    },
+  };
+
+  const listItemElements = document.querySelectorAll(".ms-ListItem");
+
+  listItemElements.forEach((listItemElement) => {
+    const imgElement = listItemElement.querySelector("img");
+    const altText = imgElement.alt.toLowerCase();
+    const originalSrc = imgElement.src;
+    const newSrc = `..\\..\\assets\\${images[altText].new}`;
+
+    listItemElement.addEventListener("click", () => {
+      if (imgElement.src === originalSrc) {
+        imgElement.src = newSrc;
+        if (altText === "picture") {
+          document.querySelector(".image").style.display = "none";
+        }
+      } else {
+        imgElement.src = originalSrc;
+        if (altText === "picture") {
+          document.querySelector(".image").style.display = "block";
+        }
+      }
+    });
+  });
+}
+
+toggleListItemImage();
