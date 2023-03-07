@@ -3,30 +3,57 @@
 
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contoso Task Pane Add-in</title>
 
     <!-- Office JavaScript API -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
 
     <!-- For more information on Fluent UI, visit https://developer.microsoft.com/fluentui#/. -->
-    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
+    />
 
     <!-- Template styles -->
     <link href="taskpane.css" rel="stylesheet" type="text/css" />
-</head>
+  </head>
 
-<body class="ms-font-m ms-welcome ms-Fabric">
+  <body class="ms-font-m ms-welcome ms-Fabric">
     <header class="ms-welcome__header ms-bgColor-neutralLighter">
-        <img width="90" height="90" src="..\..\assets\icon_64.png" alt="Contoso" title="Contoso" />
-        <h1 class="ms-font-su">PhonoWriter</h1>
+      <img width="90" height="90" src="..\..\assets\icon_64.png" alt="Contoso" title="Contoso" />
+      <h1 class="ms-font-su">PhonoWriter</h1>
+
+      <nav>
+        <ul class="ms-List ms-welcome__features">
+          <li class="ms-ListItem pictureButton">
+            <img src="..\..\assets\PredictionsPicture.png" alt="Picture" />
+            <span class="ms-font-m">Picture</span>
+          </li>
+          <li class="ms-ListItem definitionButton">
+            <img src="..\..\assets\PredictionsDefinition.png" alt="Definition" />
+            <span class="ms-font-m">Definition</span>
+          </li>
+          <li class="ms-ListItem auditionButton">
+            <img src="..\..\assets\PredictionsAudition.png" alt="Audition" />
+            <span class="ms-font-m">Audition</span>
+          </li>
+          <li class="ms-ListItem readingButton">
+            <img src="..\..\assets\PredictionsReading.png" alt="Reading" />
+            <span class="ms-font-m">Reading</span>
+          </li>
+          <li class="ms-ListItem configurationButton">
+            <img src="..\..\assets\PredictionsConfiguration.png" alt="Configuration" />
+            <span class="ms-font-m">Configuration</span>
+          </li>
+        </ul>
+      </nav>
     </header>
     <section id="sideload-msg" class="ms-welcome__main">
-        <h2 class="ms-font-xl">Please sideload your add-in to see app body.</h2>
+      <h2 class="ms-font-xl">Please sideload your add-in to see app body.</h2>
     </section>
     <main id="app-body" class="ms-welcome__main" style="display: none;">
         <h2 class="ms-font-xl"> Predictions </h2>
@@ -65,7 +92,9 @@
         </div>
         <div id="defContainer">
             <div class="def">No definition available</div>
-        </div>
+          </div>
+        </article>
+      </section>
     </main>
-</body>
+  </body>
 </html>

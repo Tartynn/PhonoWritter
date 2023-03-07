@@ -10,16 +10,22 @@
      margin: 0;
      padding: 0;
  }
- 
- ul {
+
+  header ul{
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: wrap;
     display: flex;
-    flex-direction: row;
-    list-style-type: none;
+    align-items: center;
     margin: 0;
-    padding: 0;
-    float: left;
+    overflow: auto;
+    padding-left: 0%;
+    justify-content: center;
+    align-items: center;
   }
 
+  header li {
+    justify-content: flex-start;
   ol{
     display: block;
     padding: 0 0 0 0;
@@ -31,7 +37,7 @@
     align-items: center;
     margin: 0;
     padding: 0 10px;
-  }
+}
 
   .prediction{
     width:250px;
