@@ -114,7 +114,7 @@ function onTextChanged(eventArgs) {
 }
 
 function createAlternativesList() {
-  var list = document.createElement("ul");
+  var list = document.createElement("ol");
   var items = ["Alternative1", "Alternative2", "Alternative3"]; // List 'example'
   for (var i = 0; i < items.length; i++) {
     var li = document.createElement("li");
