@@ -37,9 +37,7 @@ Clone the repository with Git by running the following command:
 git clone https://github.com/Tartynn/PhonoWritter.git
 ```
 
-or alternatively download the project folder as shown in the picture below.
-
-<!-- IMG HERE -->
+or alternatively download the project folder by clicking on the `< > Code` -button on the top-right corner and selecting `Download ZIP`.
 
 Open the project on Visual Studio Code, then open the Terminal and run the following command:
 
