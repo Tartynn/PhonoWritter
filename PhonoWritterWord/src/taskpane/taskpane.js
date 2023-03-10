@@ -12,6 +12,24 @@ Office.onReady((info) => {
   if (info.host === Office.HostType.Word) {
     document.getElementById("sideload-msg").style.display = "none";
     document.getElementById("app-body").style.display = "flex";
+    document.getElementById("user-input").addEventListener("keydown", (event) => {
+      // TODO:
+      // Implement replace function when backspace is pressed
+      // See if possible to track cursor or whatever the '|'-line is called and get the current word
+      // Send current word to prediction
+      // See if letters can be sent to doc when key is pressed, without sending "Shift", "Backspace".. etc.
+
+      // Send words to document when Space or Enter pressed
+      if (event.key === " " || event.key === "Enter") {
+        const text = document.getElementById("user-input").value;
+        let wordStart = text.lastIndexOf(" ");
+        if (wordStart === -1) {
+          wordStart = 0;
+        }
+        const word = text.substr(wordStart);
+        insertUserInput(word);
+      }
+    });
     // document.getElementById("run").onclick = run;
 
     // Determine if the user's version of Office supports all the Office.js APIs that are used in the tutorial.
@@ -195,3 +213,18 @@ function toggleListItemImage() {
 }
 
 toggleListItemImage();
+
+async function insertUserInput(text) {
+  await Word.run(async (context) => {
+    const docBody = context.document.body;
+    console.log(text);
+    docBody.insertText(text, "End");
+
+    await context.sync();
+  }).catch(function (error) {
+    console.log("Error: " + error);
+    if (error instanceof OfficeExtension.Error) {
+      console.log("Debug info: " + JSON.stringify(error.debugInfo));
+    }
+  });
+}
