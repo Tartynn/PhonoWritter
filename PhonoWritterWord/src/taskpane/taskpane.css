@@ -164,3 +164,10 @@ textarea {
   padding: 0.5em;
 }
 
+.debug {
+  background-color: lightcoral;
+  width: 80%;
+  min-height: 5em;
+  margin-top: 2em;
+}
+

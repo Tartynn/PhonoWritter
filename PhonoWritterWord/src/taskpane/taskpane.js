@@ -15,7 +15,6 @@ Office.onReady((info) => {
     document.getElementById("user-input").addEventListener("keydown", (event) => {
       // TODO:
       // Implement replace function when backspace is pressed
-      // See if possible to track cursor or whatever the '|'-line is called and get the current word
       // Send current word to prediction
       // See if letters can be sent to doc when key is pressed, without sending "Shift", "Backspace".. etc.
 
@@ -29,6 +28,14 @@ Office.onReady((info) => {
         const word = text.substr(wordStart);
         insertUserInput(word);
       }
+    });
+
+    document.getElementById("user-input").addEventListener("keyup", (event) => {
+      handleCaretPosition(event.target.selectionStart);
+    });
+
+    document.getElementById("user-input").addEventListener("click", (event) => {
+      handleCaretPosition(event.target.selectionStart);
     });
     // document.getElementById("run").onclick = run;
 
@@ -227,4 +234,26 @@ async function insertUserInput(text) {
       console.log("Debug info: " + JSON.stringify(error.debugInfo));
     }
   });
+}
+
+function handleCaretPosition(position) {
+  // TODO:
+  // Doesn't work when Enter pressed, fix needed
+  const text = document.getElementById("user-input").value;
+  const wordStart = text.lastIndexOf(" ", position);
+  const wordEnd = text.indexOf(" ", position);
+  let currentWord = "";
+
+  if (wordEnd !== -1) {
+    currentWord = text.substring(wordStart, wordEnd);
+  } else {
+    currentWord = text.substring(wordStart);
+  }
+
+  // TODO: remove innerHTML prints before publishing
+  // Show caret information on debug-div for development purposes
+  document.getElementById("caret-position").innerHTML = `Caret position: ${position}`;
+  document.getElementById("word-start").innerHTML = `Word start: ${wordStart}`;
+  document.getElementById("word-end").innerHTML = `Word end: ${wordEnd}`;
+  document.getElementById("current-word").innerHTML = `Current word: ${currentWord}`;
 }
